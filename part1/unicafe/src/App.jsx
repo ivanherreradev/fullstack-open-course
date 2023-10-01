@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 const App = () => {
   const [good, setGood] = useState(0)
@@ -6,10 +6,12 @@ const App = () => {
   const [bad, setBad] = useState(0)
 
   const handleGoodClick = () => setGood(good + 1)
-
   const handleNeutralClick = () => setNeutral(neutral + 1)
-
   const handleBadClick = () => setBad(bad + 1)
+
+  const total = good + neutral + bad
+  const average = (good - bad) / total
+  const positivePercentage = (good / total) * 100
 
   return (
     <main>
@@ -21,6 +23,12 @@ const App = () => {
       <p>Good: {good}</p>
       <p>Neutral: {neutral}</p>
       <p>Bad: {bad}</p>
+      <p>Total: {total}</p>
+      <p>Average: {isNaN(average) ? 0 : average}</p>
+      <p>
+        Positive Percentage:{' '}
+        {isNaN(positivePercentage) ? 0 : positivePercentage}%
+      </p>
     </main>
   )
 }
