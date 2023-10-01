@@ -6,18 +6,26 @@ const Statistics = ({ good, bad, neutral }) => {
   const positivePercentage = (good / total) * 100
 
   return (
-    <div>
-      <h2>Statistics</h2>
-      <p>Good: {good}</p>
-      <p>Neutral: {neutral}</p>
-      <p>Bad: {bad}</p>
-      <p>Total: {total}</p>
-      <p>Average: {isNaN(average) ? 0 : average}</p>
-      <p>
-        Positive Percentage:{' '}
-        {isNaN(positivePercentage) ? 0 : positivePercentage}%
-      </p>
-    </div>
+    <>
+      {total === 0
+        ? (
+        <p>No feedback given</p>
+          )
+        : (
+        <div>
+          <h2>Statistics</h2>
+          <p>Good: {good}</p>
+          <p>Neutral: {neutral}</p>
+          <p>Bad: {bad}</p>
+          <p>Total: {total}</p>
+          <p>Average: {isNaN(average) ? 0 : average}</p>
+          <p>
+            Positive Percentage:{' '}
+            {isNaN(positivePercentage) ? 0 : positivePercentage}%
+          </p>
+        </div>
+          )}
+    </>
   )
 }
 
